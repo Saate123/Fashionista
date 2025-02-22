@@ -9,19 +9,19 @@ function Qualities() {
   const qualities = [
     { image: Image, text: "Trusted Brands" },
     { image: Image1, text: "High Quality Materials" },
-    { image: Image2, text: "Stylish Designs" },
-    { image: Image3, text: "Fast Delivery" },
+    { image: Image3, text: "Stylish Designs" },
+    { image: Image2, text: "Fast Delivery" },
   ];
 
   return (
-    <div className="bg-gradient-to-r from-gray-300 to-gray-500">
-      <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+    <div className="bg-gradient-to-r from-gray-300 to-gray-500 ">
+      <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 ">
         {qualities.map((item, index) => (
           <div
             key={index}
-            className="flex flex-col items-center text-center p-4 transition duration-300"
+            className="flex flex-col items-center text-center p-4 "
           >
-            <img src={item.image} alt={item.text} className="w-24 h-24 mb-4" />
+            <img src={item.image} alt={item.text} className="w-24 h-24 mb-4" style={{animation: 'spin 2s linear infinite'}} />
             <p className="font-semibold text-lg" style={{color: Colors.primaryText}}>{item.text}</p>
           </div>
         ))}

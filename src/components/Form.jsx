@@ -1,11 +1,56 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import designImage from "../assets/images/design3.jpg";
 import { FcGoogle } from "react-icons/fc";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
+import { Colors } from "./Colors";
+import { Link } from "react-router-dom";
 
 function Form() {
   const [isVendor, setIsVendor] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    brandName: "",
+    email: "",
+    phone: "",
+    password: "",
+  });
+
+  const navigate = useNavigate();
+
+  // Handle input changes
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Basic validation
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.password
+    ) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    if (isVendor && !formData.brandName) {
+      alert("Please enter your Brand Name.");
+      return;
+    }
+
+    // Redirect based on user type
+    if (isVendor) {
+      navigate("/dashboard");
+    } else {
+      navigate("/");
+    }
+  };
 
   return (
     <section className="flex flex-col md:flex-row items-center min-h-screen bg-gray-200">
@@ -20,12 +65,12 @@ function Form() {
 
       {/* Right Side - Form */}
       <div className="w-full md:w-1/2 p-6 rounded-lg max-w-lg">
-        <h3 className="text-2xl font-semi-bold text-gray-800 mb-10 text-left">
+        <h3 className="text-2xl font-semibold text-gray-800 mb-10 text-left">
           Create an Account!
         </h3>
 
         {/* Form Switcher */}
-        <div className="flex items-center justify-baseline space-x-10 mb-10">
+        <div className="flex items-center space-x-10 mb-10">
           <span className="text-gray-600">User</span>
           <label className="relative inline-block w-14 h-7">
             <input
@@ -48,7 +93,7 @@ function Form() {
         </div>
 
         {/* User Form */}
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <button className="flex items-center justify-center w-full bg-transparent border-2 text-black hover:border-0 py-2 rounded-lg hover:bg-purple-700 transition duration-300 mb-6">
             <FcGoogle className="mr-2 text-2xl" /> Use Google Account
           </button>
@@ -56,33 +101,48 @@ function Form() {
 
           <input
             type="text"
+            name="name"
             placeholder="Name"
             className="input-style w-full h-9 border-b-2 mb-2.5"
+            onChange={handleChange}
+            required
           />
           {isVendor && (
             <input
               type="text"
+              name="brandName"
               placeholder="Brand Name"
               className="input-style w-full h-9 border-b-2 mb-2.5"
+              onChange={handleChange}
+              required={isVendor}
             />
           )}
           <input
             type="email"
+            name="email"
             placeholder="Email"
             className="input-style w-full h-9 border-b-2 mb-2.5"
+            onChange={handleChange}
+            required
           />
           <input
             type="text"
+            name="phone"
             placeholder="Phone Number"
             className="input-style w-full h-9 border-b-2 mb-2.5"
+            onChange={handleChange}
+            required
           />
 
           {/* Password Input with Eye Icon Inside */}
           <div className="relative">
             <input
               type={showPassword ? "text" : "password"}
+              name="password"
               placeholder="Password"
               className="input-style w-full pr-12 h-9 border-b-2 mb-2.5"
+              onChange={handleChange}
+              required
             />
             <button
               type="button"
@@ -98,24 +158,36 @@ function Form() {
           </div>
 
           <div className="flex items-center space-x-2 text-sm mb-5">
-            <input type="checkbox" />
+            <input type="checkbox" required />
             <p>
               By signing up, I agree to{" "}
-              <a href="#" className="text-blue-500 hover:underline">
+              <Link
+                to="#"
+                className="text-blue-500 hover:underline"
+                style={{ color: Colors.primaryText }}
+              >
                 terms and conditions
-              </a>
+              </Link>
             </p>
           </div>
 
-          <button className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+          <button
+            type="submit"
+            className="w-full text-white py-2 rounded-lg"
+            style={{ backgroundColor: Colors.primaryText }}
+          >
             Sign Up
           </button>
 
           <p className="text-center text-gray-600">
-            Already have an account?{" "}
-            <a href="userSign.html" className="text-blue-500 hover:underline">
+            Already have an account?
+            <Link
+              to="/signin"
+              className=" hover:underline"
+              style={{ color: Colors.primaryText }}
+            >
               Sign In
-            </a>
+            </Link>
           </p>
         </form>
       </div>

@@ -23,7 +23,7 @@ function Box() {
   ];
 
   return (
-    <div className="p-6 bg-gray-300 rounded-lg shadow-lg max-w-full justify-around mx-auto">
+    <div className="p-6 bg-gray-300 max-w-full justify-around mx-auto">
       <Swiper
         modules={[Pagination, Autoplay]}
         spaceBetween={20}
