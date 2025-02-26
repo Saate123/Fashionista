@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import Image from "../assets/images/design2.png";
 import Image1 from "../assets/images/design5.png";
 import Image2 from "../assets/images/design6.png";
 import Image3 from "../assets/images/design7.png";
+import { Link } from "react-router-dom";
 
 function Categories() {
   const categories = [
@@ -29,9 +31,11 @@ function Categories() {
             <img
               src={item.image}
               alt={item.text}
-              className="w-50 h-50 rounded-full bg-gray-900 mb-4 object-contain"
+              className="w-50 h-50 hover:w-60 hover:h-60 border-2 border-white transition-all rounded-full bg-gray-900 mb-4 object-contain hover:bg-gray-300"
             />
-            <p className="font-semibold text-lg text-white">{item.text}</p>
+            <Link to="/see-more">
+              <p className="font-semibold text-lg text-white hover:text-purple-950">{item.text}</p>
+            </Link>
           </div>
         ))}
       </div>

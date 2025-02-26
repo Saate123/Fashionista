@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import Image from "../assets/images/logo.png";
 import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
@@ -32,14 +33,18 @@ function Header() {
 
       {/* Icons and Mobile Menu Toggle */}
       <div className="flex items-center space-x-4 md:hidden">
-        <MdOutlineShoppingCart
-          className="text-xl cursor-pointer hover:text-red-500"
-          style={{ color: Colors.primaryText }}
-        />
-        <FaRegUser
-          className="text-xl cursor-pointer hover:text-red-500"
-          style={{ color: Colors.primaryText }}
-        />
+        <Link>
+          <MdOutlineShoppingCart
+            className="text-xl cursor-pointer hover:text-red-500"
+            style={{ color: Colors.primaryText }}
+          />
+        </Link>
+        <Link to="/signup">
+          <FaRegUser
+            className="text-xl cursor-pointer hover:text-red-500"
+            style={{ color: Colors.primaryText }}
+          />
+        </Link>
         {menuOpen ? (
           <FaTimes
             className="text-2xl cursor-pointer"

@@ -6,7 +6,7 @@ function Newsletter() {
 
   const handleSubscribe = (e) => {
     e.preventDefault();
-    alert(`${email} subscription was successful`);
+    alert(`Thank you, your subscription was successful`);
     setEmail(""); // Clear input field after submission
   };
 

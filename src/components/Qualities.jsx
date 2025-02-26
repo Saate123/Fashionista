@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import Image from "../assets/images/icon1.png";
 import Image1 from "../assets/images/icon2.png";
@@ -14,14 +15,14 @@ function Qualities() {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-gray-300 to-gray-500 ">
+    <div className="bg-gradient-to-r from-gray-300 to-gray-500 overflow-hidden ">
       <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 ">
         {qualities.map((item, index) => (
           <div
             key={index}
             className="flex flex-col items-center text-center p-4 "
           >
-            <img src={item.image} alt={item.text} className="w-24 h-24 mb-4" style={{animation: 'spin 2s linear infinite'}} />
+            <img src={item.image} alt={item.text} className="w-24 h-24 mb-4 animate-pulse"/>
             <p className="font-semibold text-lg" style={{color: Colors.primaryText}}>{item.text}</p>
           </div>
         ))}

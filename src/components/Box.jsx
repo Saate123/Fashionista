@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
@@ -7,8 +8,12 @@ import "swiper/css/pagination";
 import Image from "../assets/images/design3.jpg";
 import Image2 from "../assets/images/design8.png";
 import { Colors } from "./Colors";
+import { useNavigate } from "react-router-dom";
 
 function Box() {
+
+  const navigate = useNavigate();
+
   const data = [
     {
       header: "Your Style, Elevated",
@@ -23,7 +28,7 @@ function Box() {
   ];
 
   return (
-    <div className="p-6 bg-gray-300 max-w-full justify-around mx-auto">
+    <div className="p-10 bg-gray-300 max-w-full justify-around mx-auto">
       <Swiper
         modules={[Pagination, Autoplay]}
         spaceBetween={20}
@@ -38,7 +43,7 @@ function Box() {
             <div className="flex flex-col justify-around md:flex-row items-center gap-6 p-4">
               <div className="text-center md:text-left w-full md:w-1/2">
                 <h2
-                  className="text-7xl mb-5 font-bold"
+                  className="text-5xl lg:text-7xl mb-5 font-bold"
                   style={{ color: Colors.primaryText }}
                 >
                   {item.header}
@@ -50,6 +55,7 @@ function Box() {
                   {item.text}
                 </p>
                 <button
+                  onClick={() => navigate("/see-more")}
                   style={{ backgroundColor: Colors.primaryText }}
                   className="mt-5 px-6 py-3 text-white rounded-lg text-lg font-semibold transition duration-300 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 md:px-8 md:py-4"
                 >
