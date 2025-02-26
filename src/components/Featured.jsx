@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import Image from "../assets/images/design7.png";
 import { Link } from "react-router-dom";

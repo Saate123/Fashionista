@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import Image from "../assets/images/design1.png";
+import { useNavigate } from "react-router-dom";
 
 function ProductDescription() {
   const { id } = useParams();
@@ -38,6 +39,8 @@ function ProductDescription() {
       />
     ));
   };
+
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-gray-100 py-10 px-5 md:px-20">
@@ -135,10 +138,13 @@ function ProductDescription() {
             </button>
             <button
               onClick={() =>
-                console.log("Bought:", {
-                  selectedSize,
-                  selectedColor,
-                  quantity,
+                navigate("/checkout", {
+                  state: {
+                    product,
+                    selectedSize,
+                    selectedColor,
+                    quantity,
+                  },
                 })
               }
               className="bg-transparent w-36 border-2 text-black hover:text-white px-6 py-3 rounded-lg hover:bg-green-700 transition"
