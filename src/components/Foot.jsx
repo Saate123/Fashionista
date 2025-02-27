@@ -20,13 +20,13 @@ function Foot() {
             Follow Us
           </p>
           <div className="flex space-x-4 text-2xl">
-            <Link>
+            <Link to="https://www.tiktok.com/@fashionistar_1?_t=ZM-8uGZ6xBSUsx&_r=1">
               <PiTiktokLogo
                 className="cursor-pointer"
                 style={{ color: Colors.primaryText }}
               />
             </Link>
-            <Link>
+            <Link to="https://www.facebook.com/share/1HPVqLzizy/">
               <SlSocialFacebook
                 className=" cursor-pointer"
                 style={{ color: Colors.primaryText }}
