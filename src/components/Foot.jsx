@@ -1,8 +1,9 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import Image from "../assets/images/logo.png";
 import { SlSocialInstagram, SlSocialFacebook } from "react-icons/sl";
 import { PiTiktokLogo } from "react-icons/pi";
-import { CiLinkedin } from "react-icons/ci";
+import { IoMdMail } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { Colors } from "./Colors";
 
@@ -20,30 +21,30 @@ function Foot() {
             Follow Us
           </p>
           <div className="flex space-x-4 text-2xl">
-            <Link to="https://www.tiktok.com/@fashionistar_1?_t=ZM-8uGZ6xBSUsx&_r=1">
+            <a href="https://www.tiktok.com/@fashionistar_1?_t=ZM-8uGZ6xBSUsx&_r=1">
               <PiTiktokLogo
                 className="cursor-pointer"
                 style={{ color: Colors.primaryText }}
               />
-            </Link>
-            <Link to="https://www.facebook.com/share/1HPVqLzizy/">
+            </a>
+            <a href="https://www.facebook.com/share/1HPVqLzizy/">
               <SlSocialFacebook
                 className=" cursor-pointer"
                 style={{ color: Colors.primaryText }}
               />
-            </Link>
-            <Link>
+            </a>
+            <a href="#">
               <SlSocialInstagram
                 className="cursor-pointer"
                 style={{ color: Colors.primaryText }}
               />
-            </Link>
-            <Link>
-              <CiLinkedin
+            </a>
+            <a href="fashionistar2024@gmail.com">
+              <IoMdMail
                 className="cursor-pointer"
                 style={{ color: Colors.primaryText }}
               />
-            </Link>
+            </a>
           </div>
         </div>
 
