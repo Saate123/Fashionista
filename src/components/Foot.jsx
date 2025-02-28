@@ -39,9 +39,9 @@ function Foot() {
                 style={{ color: Colors.primaryText }}
               />
             </a>
-            <a href="fashionistar2024@gmail.com">
+            <a href="mailto:fashionistar2024@gmail.com">
               <IoMdMail
-                className="cursor-pointer"
+                className="cursor-pointer hover:text-red-500 transition"
                 style={{ color: Colors.primaryText }}
               />
             </a>
